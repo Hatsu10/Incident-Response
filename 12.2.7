@@ -1,0 +1,69 @@
+Ticket: 407054
+Date:   13 Jan 2019
+SOC Engineer: Akhtar Tadpatri
+Issue Category: C&C Communication
+Reporting Device: Lancope Stealthwatch
+Severity: Medium
+CERT Ticket: n/a
+Escalation: Yes
+Description:
+  SLIC - Communication to C2 Domain detected from user ACME:Sydneytsui 
+  to C2_Domain jbxijxgcts.com
+  As the domain hit by the user and the C2 domain are different,
+  this is a false positive. Checking the user logs, we found the
+  domain has been blocked on the WSA Squid. We are unable to get
+  the IP address of the domain in URLQuery or in CentralOps.
+  From the user's traffic pattern it does not appear that the user 
+  is knowingly interacting with this site.
+  File C:\Windows\System32\CCM\Cache\MEL002B1.11.System\BackupScript.exe
+  detected as Trojan.Agent 
+Action:
+  User workstation removed from network and ticket raised to re-image the 
+  end user machine.
+ .................................................................................................................... 
+  
+  In the first issue, the initial assessment was that the detection was a false positive, but a further investigation did find a potential trojan in the cache. For safety, it was decided to re-image the workstation.
+  ...........................................................................................................................
+  
+  Ticket: 407059
+Date:   14 Jan 2019
+SOC Engineer: Justine Wood
+Issue Category: Unidentified Threat
+Reporting Device: Splunk ESS
+Severity: Low
+CERT Ticket: n/a
+Escalation: No
+Description:
+  Cisco_C9-P3-WSA allowed suspicious connection for user vadsubramaa
+  User responsible for this flow works as a Test Automation Engineer 
+  in MelbourneSource IP: 10.133.32.97, Destination Domain: www.mobi-to-pdf.com
+  Reputation score -5.4
+  User using his work laptop to convert a Mobi file to pdf.  This is
+  not malicious activity
+Action:
+  No action required. Ticket closed
+  
+  
+  .............................................................................
+  In the second incident, the Level 2 analysts determined that this was not an incident.
+
+Not all issues can be closed as benign or through routine activities such as a system re-image. When we get a ticket that requires a more serious response then the Incident Management process starts.
+
+While we tend to talk about Incident Response as a catch-all, the term when used properly is just one of three phases of Incident Management. Before we move into Incident Response, we must Prepare for an Incident Happening, and after the Incident Response, we need to do a series of Follow-up Actions. Let's take a hands-on look at one approach to Incident Management, that of the UK CREST organization.1
+
+We'll take a look at Incident Management through the lens of the Cyber Security Incident Response Maturity Tool. This is an Excel-based tool that can be obtained from the Crest website. If we open the tool and select the Assessment tab, the following assessment sheet is presented:
+
+
+
+Let's explore the first phase. Before we must deal with an incident, there are five steps we need to take. We should conduct a criticality assessment so that we understand the importance of the technology assets to the business. Then we need to carry out a threat analysis and exercise the incident response procedures. Then a review of the people, processes, and technology required to enable an effective incident response needs to be undertaken. PSuch things as defined points of contact and responsibilities for managing an incident, the composition of the incident management team, the procedures for activating the team and initiating incident response, and specific scenario incident response plans need to be detailed. A key process is "escalation". This is when the incident response team is unable to take control of the incident and additional resources are needed. The final two steps are creating the control environment and understanding the maturity and readiness of the Incident Management process.
+
+For the Incident Response stage, there are four high-level steps. The first is the identification of incidents from logs. This is done through alerts, and by proactive user reporting. The second step is the investigation. This starts with understanding what has happened, carrying out triage, executing the first response procedures, and then undertaking a detailed analysis of the incident. The third step is action. This is done to contain the incident to minimize damage, taking any evidence that might be required for follow-up prosecution, and then eradicating the threat. The final stage is recovery. Having a good recovery plan that has been exercised and backups that have been validated.
+
+The final stage of Incident Management is Follow Up. There may be ongoing investigations, and the details of the incident should be captured in a report. A post-incident review is carried out to check on any process issues that were encountered, and to ensure that any lessons that can be learned from the incident have been. These lessons may involve updating the Incident Response procedures. The final step is to keep track of incident trends to ensure we're not missing any underlying systemic issues. A key takeaway from this phase will be understanding the cost of the incident and whether the time required for the business to recover services was acceptable.
+
+The SOC Manager needs to understand the inter-relationship between the cyber incident response plan and IT's own Major Incident Management procedures, as these, will generally merge at some point of escalation, at which time IT will assume responsibility for the incident.
+1
+
+(CREST), https://www.crest-approved.org/2018/07/20/cyber-security-incident-response-maturity-assessment/index.html ↩︎
+
+  
